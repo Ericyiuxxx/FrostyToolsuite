@@ -211,7 +211,7 @@
                                 <Button x:Name="launchButton" Height="20" ToolTip="Launch game with selected mods applied" Click="launchButton_Click">
                                     <StackPanel Orientation="Horizontal">
                                         <Image Source="/FrostyModManager;component/Images/Play.png"/>
-                                        <TextBlock Margin="2,0,3,2" Text="Generate Modfiles" VerticalAlignment="Center"/>
+                                        <TextBlock Margin="2,0,3,2" Text="Patch Game" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>

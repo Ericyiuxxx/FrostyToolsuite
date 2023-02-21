@@ -2075,18 +2075,25 @@ namespace Frosty.ModSupport
             // launch the game (redirecting to the modPath directory)
             Logger.Log("Finishing Up");
 
-            // try
-            // {
-            //     //KillEADesktop();
-            //     //ModifyInstallerData($"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
-            //     ExecuteProcess($"{m_fs.BasePath + ProfilesLibrary.ProfileName}.exe", $"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
-            //     //WaitForGame();
-            //     //CleanUpInstalledData();
-            // }
-            // catch (Exception ex)
-            // {
-            //     App.Logger.Log("Error Launching Game: " + ex);
-            // }
+             try
+             {
+                 //KillEADesktop();
+                 //ModifyInstallerData($"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
+                 int pathLen = modDataPath.Length;
+                 foreach (string filePath in Directory.GetFiles(modDataPath, "*.*", SearchOption.AllDirectories))
+                 {
+                     string subPath = filePath.Substring(pathLen);
+                     string newPath = Path.Combine(m_fs.BasePath, subPath);
+                     File.Copy(filePath, newPath, true);
+                 }
+                 //ExecuteProcess($"{m_fs.BasePath + ProfilesLibrary.ProfileName}.exe", $"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
+                 //WaitForGame();
+                 //CleanUpInstalledData();
+             }
+             catch (Exception ex)
+             {
+                 App.Logger.Log("Error patching game files, manual patching required.");
+             }
 
             App.Logger.Log("Done");
 
