@@ -403,7 +403,7 @@ namespace FrostyEditor.Windows
             try
             {
                 // run mod applying process
-                FrostyTaskWindow.Show("Launching", "", (task) => 
+                FrostyTaskWindow.Show("Preparing Files", "", (task) => 
                 {
                     try
                     {

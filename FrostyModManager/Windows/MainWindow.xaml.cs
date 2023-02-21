@@ -633,7 +633,7 @@ namespace FrostyModManager
 
             // launch
             int retCode = 0;
-            FrostyTaskWindow.Show("Launching", "", (task) =>
+            FrostyTaskWindow.Show("Preparing Files", "", (task) =>
             {
                 try
                 {

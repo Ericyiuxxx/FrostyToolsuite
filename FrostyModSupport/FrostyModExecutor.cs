@@ -1160,7 +1160,7 @@ namespace Frosty.ModSupport
             m_modDirName = "ModData\\" + modPackName;
             cancelToken.ThrowIfCancellationRequested();
 
-            App.Logger.Log("Launching");
+            App.Logger.Log("Preparing Files");
 
             m_fs = inFs;
             Logger = inLogger;
