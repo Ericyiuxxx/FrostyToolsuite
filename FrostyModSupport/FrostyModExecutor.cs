@@ -1464,11 +1464,11 @@ namespace Frosty.ModSupport
                         reason = "New installation detected.";
 
                     FrostyMessageBox.Show(reason + "\r\n\r\nShortly you will be prompted for elevated privileges, this is required to create symbolic links between the original data and the new modified data. Please ensure that you accept this to avoid any issues.", "Frosty Toolsuite");
-                    if (!RunSymbolicLinkProcess(cmdArgs))
-                    {
-                        Directory.Delete(modDataPath, true);
-                        throw new FrostySymLinkException();
-                    }
+                    // if (!RunSymbolicLinkProcess(cmdArgs))
+                    // {
+                    //     Directory.Delete(modDataPath, true);
+                    //     throw new FrostySymLinkException();
+                    // }
                 }
 
                 // set max threads to processor amount (stop hitching)
@@ -1845,7 +1845,7 @@ namespace Frosty.ModSupport
                 cancelToken.ThrowIfCancellationRequested();
                 if (cmdArgs.Count > 0)
                 {
-                    RunSymbolicLinkProcess(cmdArgs);
+                    //RunSymbolicLinkProcess(cmdArgs);
                 }
 
                 // reset threadpool
@@ -2073,20 +2073,20 @@ namespace Frosty.ModSupport
             }
 
             // launch the game (redirecting to the modPath directory)
-            Logger.Log("Launching Game");
+            Logger.Log("Finishing Up");
 
-            try
-            {
-                //KillEADesktop();
-                //ModifyInstallerData($"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
-                ExecuteProcess($"{m_fs.BasePath + ProfilesLibrary.ProfileName}.exe", $"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
-                //WaitForGame();
-                //CleanUpInstalledData();
-            }
-            catch (Exception ex)
-            {
-                App.Logger.Log("Error Launching Game: " + ex);
-            }
+            // try
+            // {
+            //     //KillEADesktop();
+            //     //ModifyInstallerData($"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
+            //     ExecuteProcess($"{m_fs.BasePath + ProfilesLibrary.ProfileName}.exe", $"-dataPath \"{modDataPath.Trim('\\')}\" {additionalArgs}");
+            //     //WaitForGame();
+            //     //CleanUpInstalledData();
+            // }
+            // catch (Exception ex)
+            // {
+            //     App.Logger.Log("Error Launching Game: " + ex);
+            // }
 
             App.Logger.Log("Done");
 
