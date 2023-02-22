@@ -174,7 +174,7 @@ namespace FrostyModManager
 
             try
             {
-                if (UpdateCheckerUtils.CheckVersion(checkPrerelease, localVersion))
+                if (false)
                 {
                     System.Threading.Tasks.Task.Run(() =>
                     {
